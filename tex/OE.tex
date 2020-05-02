@@ -1,0 +1,517 @@
+						INTEGER PROGRAMMING
+
+						Branch & Bound Algorithm
+
+
+
+						Queueing Theory
+								|
+								|
+				___________ | ________
+				|							|
+
+				Queue                         Server
+									1. Parallel Processing.
+									2. Serial/Batch Processing.
+
+To study the queue we need to understand the queue characteristics.
+QT is about understanding the Queue Characteristics.
+
+Characteristics:
+1.
+2.
+
+Queue Characteristics can be modelled using:
+1. Exponential Distribution.
+2. Poisson Distribution.
+
+Random Variable
+|
+|_____>  Discrete RV.
+|_____> Continuous RV.
+
+Probability Density Function. (PDF) (for Continuous RV)
+Probability Mass Function. (PMF) (for Discrete RV)
+
+Cummulative Distribution Function. (CDF)
+
+Elements of Queueing Theory
+
+Principal Actors
+--> Customer
+--> Server (A facility which gives service the customer)
+
+Interarrival time : 
+
+Queue:
+1. Finite.
+2. Infinite.
+Queue Discipline:
+* FCFS (First Come First Serve)
+* LCFS (Last Come First Serve)
+* SIRO
+* Order of Priority.
+
+Queue Behaviour:
+* Jockeying.
+* Balking.
+* Reneging.
+
+Design of service facility may include the following points:
+1. Parallel Servers.
+2. Series Servers.
+3. Servers in Network.
+
+Task: How is Parallel Servers different from Servers in Network?
+
+
+Waiting Line Process (Queueing Process)
+1. Customers
+2. Service.
+
+Queueing Process can be of Single Server or Multiple Server.
+1. Single Server --> only 1 service station for the entire queue. (Movie ticket booking, food market).
+
+2. Multiple Server --> Gas station with multiple serving station.
+
+The process of waiting line is characterized by the rate at which the customer arrives. 
+
+i> Arrival Rate specifies the average number of customers per time period.
+ii> The service rate specifies the average number of customers served during a time period.
+
+What we need to do?
+Our task is to determine the probability of ‘n’arrivals being observed during a time interval of length ‘t’.
+
+The probability is based on the following pre-assumptions:
+1. The Probability that an arrival is observed during a small time interval is proportional to the length of the interval.
+
+2. The probability of two or more arrivals in such a small interval is zero.
+
+3. The no. of arrivals in any time interval is independent of the number in non-overlapping time interval.
+
+P( ‘n’ customers during period ‘t’) = the probability that ‘n’ arrivals will be observed in a time interval of length ‘t’.
+
+P(‘n’ arrivals in time ‘t’) = lambda * exp(-lambda*t)
+lambda --> Avg. rate of arrival.
+
+* This situation in QT(Queueing Theory) is called poisson’s arrival.
+* Since the arrivals alone are considered, not the departure, it is called Pure Birth Process.
+
+‘n’ --> Random Variable.
+‘n’ --> No. Of arrivals.
+
+Interarrival Time
+The time between successive arrivals is called interarrival time.
+When the no. Of arrivals in a given time interval has poisson distribution, the interarrival time has exponential distribution.
+
+f(t) = 
+P(t <= T) = 1-exp(-lambda*T)
+P(t>T) = exp(-lambda*T)
+
+Ex:
+1. One arrival comes in every 15 mins.
+	Average arrival time = 4 /hr
+	Avg. Interarrival time = 0.25 hrs
+
+2. In a factory the machine breaks down and requires service a poisson distribution, at the avg. Rate of 4/day. What is the probability that exactly 6 machine break down in 2 days.
+
+P(n,t) = (((lambda*t)^n)*exp(-lambda*t))/n!
+
+3. On an avg. 6 customers arrive in a coffee shop per hour. Determine the probability that exactly 2 customers will reach in a 30 min period.
+
+Lambda = 6, t= 30 mins = 0.5 hrs
+P(6,2) = 0.224.
+
+traffic intensity (rho) = (lambda/mu) = Avg. Arrival time / Avg. Service time.
+Rho < 1
+ 
+C = No. Of parallel service channels.
+
+Markov modelling (M/M/1 model) (alpha / FIFO)
+
+Assumptions for the M/M/1 Modelling:
+i> Arrivals follow poisson’s distribution, with lambda.
+Ii> Service time follows exponential distribution with mu, Average service rate.
+Iii> Arrivals are infinite populations (alpha = inf)
+iv> Customers are served in FIFO.
+v> There is only a single server.
+
+For the system to work, No. Of arrivals < Avg. Service rate.
+
+Rho = lambda/mu <---- Probability of time.
+
+Probability that system is idle = Probability that there are no customers in the system.
+
+P0 = 1 – rho.
+Probablity of having exactly one customer in the system.
+
+Pn = rhon * P0  = 
+
+* The expected number of customers in the system:
+
+Ls = ∑ (1 -> alpha (inf) ) n * Pn
+= rho/(1-rho) = lambda/(mu-lambda)
+
+* The expected number of customers in the system:
+
+Lq = ∑ (1 > alpha) (n-1)*Pn 
+
+
+Lq = rho2 / (1 – rho) = lambda2 /(mu* (mu – lambda))
+
+* Average waiting time in the system
+
+Ws = (Avg. Time b/w arrivals)*()
+
+
+* Avg. Waiting time in the queue
+
+Wq = Avg. Time b/w arrivals * Lq  = (1/ lambda )* Lq 
+Wq  = 
+
+Ex. Mean Arrival Rate = 1 customer/4 mins
+	 Mean Service Time = 2.5 mins
+
+1. Average customers in the system.
+2. Average Queue length.
+3. The time taken by the customer in the system.
+4. Average time a customer waits before being served.
+
+1. Ls = 1.66 customer/hr
+2. Lq = 1.04 customers/hr
+3. Ws = 6.66 mins
+4. Wq = 4.16 mins
+
+
+
+						Kendall Notation
+
+a = Arrival distribution
+b = Service time (has exponential distribution)
+c = no. Of service channels (Servers)
+d = Maximum number of customers allowed in system
+e = queue discipline (FIFO / FCFS)
+
+[ (a/b/c) = (d/e)]
+[(M/M/1) = (alpha/FIFO)]
+* For M/M/1 queueing system there are exact formulas, which state that the system has reached a steady state.
+
+A steady state for a system means that the system has been running long enough ,so as to settle down into some kind of equilibrium position.
+
+M/M/s Queueing System
+
+lambda = mean arrival rate.
+S = No. Of servers (always >= 1)
+
+rho (utilization factor/traffic intensity)  = if S increases rho decreases.
+
+Rho = lambda /(mu * S)
+
+To have a steady state
+lambda < (mu * S)  i.e.  rho < 1
+
+Rate Diagrams
+General Rate Diagram
+
+Rate diagram for M/M/s model (lambda fixed mu changes).
+
+
+Po = Probability that there are no customers.
+Po = 1 – rho
+
+Lq = (Po(lambda/mu)^n rho)/(s!*(1-rho)^2)
+ 
+
+		M/M/s//K Queueing Model ( With finite population ‘K’ )
+			( Finite Queue variation of M/M/s )
+
+
+
+Since, there are a finite number of states, the steady state equation hold even if rho > 1.
+
+			M/M/s///N Queueing Model
+				( Finite Calling Population variation of M/M/s )
+
+			(Population is subset of the capacity)
+
+
+
+
+
+
+
+
+						Non-Linear Programming
+
+Non-Linear Programming Introduction
+
+1. One-dimensional minimization methods.
+
+Fibonacci Method
+
+Fibonacci method can be used to find the minimum of a function of one variable even if the function is not continuous.
+It is also similar to dichotomous method but the two are not the same i.e. is applicable also for  non continuous functions also.
+
+Limitations:
+i> The initial interval of uncertainty, in which the optimum lies, has to be known.
+ii> The function to be optimized has to be unimodal (in an interval only 1 minimum can lie) in the initial interval of uncertainty.
+Iii> The exact optimum cannot be located in this method. Only an interval known as the final interval of uncertainty can be made as small as desired by using more computation  
+iv> The number of function evaluations to be used in the search or the resolution required has to be specified beforehand.
+
+F0 = F1 = 1
+Fn = Fn-1 + Fn-2  n=2,3,4...
+L0 = [a, b]
+L2* = (Fn-2 / Fn)*L0
+x1 = a + L2* = a + (Fn-2 / Fn)*L0
+x2 = b – L2*      = a + (Fn-2 / Fn)*L0
+L2 = L0 – L2* = L0 - (Fn-2 / Fn)*L0 = (Fn-1 / Fn )*L0
+L2* = (Fn-2 / Fn )*L0 = (Fn-2 / Fn-1 )* L2
+L3*  = (Fn-3 / Fn )*L0 = (Fn-3 / Fn-1)* L2
+L3 = L2 – L3* = L2 – (Fn-3 / Fn-1)*L2 = (Fn-2 / Fn-1)*L2
+
+After jth iteration:
+(Start j from 3)
+Lj = (Fn-j / Fn-(j-2))*Lj-1
+Lj = (Fn-(j-1)/Fn)*L0
+Reduction Ratio (Ln / L0):
+
+
+
+
+Fibonacci Method:
+
+n         Fn           Ln / L0
+0 		1			1
+1		1			1
+2		2			0.5
+3		3   			0.333
+4		4			0.2
+5		8			0.125
+6		13			0.07692
+7		21			0.04762
+8		34			0.02941
+9		55			0.01818
+10		89			0.01124
+
+Ex. L0 = [0, 3]                             L0  = [0, 3]		
+	L2  = [1, 1.5]					 L2 = [0, 1.8462]
+	(L2 / L0 ) = 1/6				(L2 / L0 ) = 
+
+
+Ex. Min f(x) = 0.65 – [0.75/(1+x2)] – 0.65*x*tan-1 (x) by fibonacci method using n = 6.
+
+L2* = (Fn-2 / Fn )*L0 = (F4 / F6)*L0 = 5/13 * 3 = 1.153846
+
+fa = f(0) =          fb = f(b) = 
+
+x1 = a + L2*  = 0 + 1.153846
+x2 = b – L2* = 3 – 1.153846 = 1.846154
+f1 = f(x1) = -0.207270 , f2 = f(x2) = -0.1158
+
+Using unimodality theorem,
+L2 : [0, x2]
+L2* : [x2, 3]
+x3 = a + x2  - x1 = 0 + (1.846154 – 1) = 0.692308
+f3 = f(x3) = -0.291364
+Since, f1 > f3 
+L3 = L2 – L3* = [0, x1] 
+x4 = a + (x1 – x3) = 0.461538
+f4 = 0.30981
+
+f4 < f3 
+
+L4 = [0,x3] = L3 – L4* = [0, x1] – [x3, x1]
+			= [0,x3]
+
+x5  = a + (x3 – x4) = 0.23077
+f5 = -0.263678
+f5 > f4
+
+a = 0			fa = -0.1
+x5 = 0.23077			f5 = -0.2637
+x4 = 0.4615			f4  = -0.309811
+x3 = 0.6923			f3  = -0.2914
+
+L5 = L4 - L5*  = [0, x3] – [0,x5] = [x5 , x3]
+x6   = x5 + (x5 – x4) = 0.461540
+f6 = -0.309810
+
+Since, f6 > f4
+x5  = 0.23077 		f5 = -0.2636    
+x4 = 0.461538		f4 = -0.3098
+x3 = 0.69231		f3  = -0.29136
+x6 = 0.461540 		f6 = -0.309810
+
+L6  = L5 – L6* = [x5, x6]
+L6 / L0  = 0.076923
+
+L6 / L0 = 1/F6 = 0.07692
+
+
+			Golden Search Method
+
+
+
+Golden Search Method is based on the Golden Ratio.
+
+Ex. 1>  A line segment is divided into 2 unequal parts:
+
+<------------------------------------->
+|<--------- a ---------->|<---- b --->|
+
+(a+b)/a = a/b ( =r ) . For what value of  ‘a’ can this happen?
+
+b*(a+b) = a2
+
+for b = 1								for b = 2
+a2 -a -1 = 0
+a = (1+/- (5)1/2)/2
+
+a/b = (1 + (5)1/2)/2 = 1.6180339
+
+
+
+From Fibonacci Sequence:
+
+N  	2	  	3  		4  		5  		6  		7  		8  		9 		10		∞
+(Fn-1/Fn)        0.5  0.667    0.6    	0.625 	0.61 	0.62	0.617	0.618 			0.618
+
+
+Now from fibonacci method, for large N (N --> ∞)
+
+L2 = lim(N --> ∞) Fn-2
+
+At Kth  iteration:
+Lk = lim (N --> ∞) (Fn-1/Fn)k-1 * L0
+Now, from the relation:
+Fn = Fn-1 + Fn-2
+Fn/Fn-1 = 1 + (Fn-2/Fn-1)
+(Fn/Fn-1) = 1 + (Fn-1/Fn) -------------------(2)
+
+Let’s define
+r = lim (N --> ∞) (Fn/Fn-1)   ----------------------(3)
+r = 1 + 1/r
+=> r2 - r -1 = 0
+=> r = 1.618034        -------------------(4)
+
+using (3) and (4) in (1):
+Lk = (1/r)k-1 L0
+      = (1/1.618034)k-1 * L0
+
+L2* = lim (N --> ∞) (Fn-2/Fn)*L0
+        = lim (N --> ∞) (Fn-1/Fn)2 * L0
+        = (1/r)2 * L0
+
+Ex. Min f(x) = 0.65 – 0.75/(1+x2) – 0.65*x*tan-1(1/x)
+[0,3] , n = 6
+
+Soln. L0 = [0, 3]
+
+L2* = 0.382*L0  = 0.382 * (3 – 0) = 1.1460
+x1 = a + L2*  = 0 + 1.1460 = 1.1460			f1  = -0.208654
+x2  = b – L2* = 	3 – 1.460	 = 1.8540			f2  = -0.115124
+fa = -0.1
+fb = -0.0524
+
+By the unimodality assumption of the function f(x), the interval [x2,3] is discarded and [0,x2] is the new interval of uncertainty.
+
+L2 = L0 – L2*  = [0, 3] – [x2, 3] = [0, x2]
+x3  = a + (x2 – x1) = 0 + (1.8540 – 1.1460) = 0.7080
+f3  = -0.288943
+
+Since f3 < f1 , by unimodality assumption of f(x), interval [x1.x2] to be discarded, and [0,x1] is the new interval of uncertainty.
+
+L3 = L2 - L3*  = [0,x2] – [x1, x2] = [0,x1]
+x4 = a + (x1 – x3) = 0 + (1.1460 – 1.)
+x4 = 0.4380                x5 = 0.2700			x6 = 
+f4 = -0.308951			f5 = -0.278434
+
+
+Min/ Max function f(x,y,z) subject to a constraint g(x,y,z)=c.
+
+Langrangian multiplier method for constraint optimisation.
+
+
+Constrained Optimization with equality Constraints
+
+Ex: 2
+Lagrangian Function
+
+L(x,y,z,λ1,λ2) = f(x,y,z) - ∑(i = 1 -> m) λi * gi (x,y,z)
+
+
+1. 2*x – 2*λ1 = 0 		=> x = λ1
+2. 2 + λ1 – λ2  = 0		=> λ2 = λ1 + 2
+3. -2*z – λ2 = 0		=> z = -λ2/2
+4. 2*x – y = 0			=> 2x + z = 0
+5. y + z = 0
+
+Solving the above equations:
+λ1 = 2/3 , λ2 = 8/3 , x = 2/3 , y = 4/3 , z = -4/3
+
+The maximum point is (2/3,4/3,-4/3)
+and the maximum value = f(2/3,4/3,-4/3) = 4/9 + 8/3 - 16/9= 4/3
+
+Ex : 3 Find optimal value of f(x,y,z) = x2 + y2 + z2 
+		w.r.t the constraints:
+1. x + 2*y + 3*z = 6
+2. x + 3*y + 9*z = 9
+
+
+
+					Convex and Concave Function
+
+Convex Function:
+
+Concave Function:
+
+
+Neither Convex nor Concave function:
+
+
+
+
+
+
+
+Dt. 01/05/2020
+Constrained Optimization with Inequality Constraints
+
+Max/Min f(x1,x2,....,xn)
+
+S.T.
+g1(x1,x2,...,xn) <= b1
+g2(x1,x2,...,xn) <= b2
+gm(x1,x2,...,xn) <= bm
+
+x1,x2,....,xn >= 0
+
+Kuhn – Tucker (KT) Conditions
+
+a> If  1) is maximization problem and x_bar = (x1_bar,x2_bar,...,xn_bar) is an optimal solution then x_bar must satisfy the m constraints in 1) are g1, g2, ... gm and there must exist multipliers lambda_1, lambda_2, ..., lambda_m satisfying:
+
+df/dx_j - ∑(t = 1-> m) λi * dg_4(x_bar)/dx_j = 0 (j=1,2,3,...,n)
+λ_i [b_i – g_i(x_bar)] = 0
+λ_i >= 0 (i=1,2,3,....,m)
+
+b> If 1) is a minimization problem and x_bar=(x1_bar,x2_bar,...xn_nar) is an optimal solution of 1), then x_bar must satisfy the m constraints in 1)  and there must exist multipliers lambda_1, lambda_2, ...,lambda_m satisfy.
+
+df(x_bar)/dx_j + ∑(t=1->m) dg_i(x_bar)/dx_j = 0
+
+
+Ex. Max z = x_1(30-x_1)+x_2(50-2*x_2)-3*x_1-5*x_2-10*x_3
+
+S.T.:
+	x_1 + x_2 <= x_3
+	x_3 <= 17.25
+
+f(x_1,x_2,x_3) = x_1(30-x_1) + x_2(50-2*x_2) - 3*x_1 – 5*x_2 - 10*x_3
+
+
+The KT – Conditions are:
+df/dx_1 - lamda_1*
+
+
+
+
+ 
