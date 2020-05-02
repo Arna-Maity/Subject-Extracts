@@ -1,71 +1,46 @@
-Important Concepts in VLSI Design
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
-The Complete VLSI Design Flow:
+\title{First document}
+\author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
+\date{February 2014}
 
-
-
-
-
-
-
-
-
-
-
+\begin{document}
+\tableofcontents
+\newpage
 
 
+\section{Important Concepts in VLSI Design}
 
+\textbf{The Complete VLSI Design Flow:}
 
+\includegraphics [scale=1.6]{vsdflow}
 
+The VLSI Design Flow is divided into two categories:
+\begin{itemize}
+    \item Frontend VLSI Design
+    \item Backend VLSI Design (VLSI Physical Design)
+\end{itemize}
 
+\emph{Steps in VLSI Physical Design}
+\begin{itemize}
+    \item Floorplanning.
+    \item Partitioning.
+    \item Preplaced Cells.
+    \item Power Planning. (Grid Power Structure).
+    \item PNR (Placement and Routing).
+    \item STA (Static Timing Analysis).
+\end{itemize}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The MOS Capacitance Model
 
 Critical Path : In any digital logic circuit, the path with the maximum delay is called is called the Critical Path.
 
-Steps in VLSI Physical Design
-
-1. Floorplanning.
-2. Partitioning.
-3. Preplaced Cells.
-4. Power Planning. (Grid Power Structure).
-5. PNR (Placement and Routing).
-6. STA (Static Timing Analysis).
-
-
-
 									Logical Effort
 1. Introduction.
-2. Basics of logicsl effort.
+2. Basics of logical effort.
 3. Calculation of logical effort for logic gates.
 4. Multistage Logic Network
 5. Recapitulation. 
@@ -73,63 +48,60 @@ Steps in VLSI Physical Design
 
 
 
+\section{The MOS Inverter}
+\subsection{The Depletion-Load nMOS Inverter}
+\subsubsection{Static Characteristics}
+\subsubsection{Noise Margin}
+\subsubsection{Static Power Dissipation}
 
+\subsection{The Static CMOS Inverter}
+\subsubsection{Static Characteristics}
+\subsubsection{Noise Margin}
+\subsubsection{Static Power Dissipation}
+\subsubsection{Dynamic Power Dissipation}
+\subsection{MOS Technologies}
 
+\begin{itemize}
+    \item Depletion-Load nMOS Logic
+    \item Static CMOS Logic
+    \item Pseudo nMOS Logic
+    \item Dynamic MOS circuits
+    \begin{itemize}
+        \item Single Phase Dynamic Circuits.
+        \item Two Phase Dynamic Circuits.
+    \end{itemize}
+    \item Dynamic CMOS Logic.
+    \item Domino CMOS Logic.
+    \item Pass Transistor Logic.
+\end{itemize}
 
-									MOS Technologies
-
-The MOS Capacitance Model
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1. Depletion-Load nMOS Logic
-2. Static CMOS Logic
-3. Pseudo nMOS Logic
-4. Dynamic MOS circuits
-    I> Single Phase Dynamic Circuits.
-    II> Two Phase Dynamic Circuits.
-5. Dynamic CMOS Logic.
-6. Domino CMOS Logic.
-7. Pass Transistor Logic.
-
+\subsection{Comparison of MOS Logic Technologies}
 
 							Depletion Load nMOS Logic
 Advantages:
-1. Requires less transistors and hence less Si area. (requires n+1 nMOS transistors for a logic circuit with fan – in ‘n’)
-2.
-
+\begin{itemize}
+    \item Requires less transistors and hence less Si area. (requires n+1 nMOS transistors for a logic circuit with fan – in ‘n’)
+\end{itemize}
 
 Disadvantages:
-1. Limited output voltage swing.
-2. Quite high static power dissipation.
-
+\begin{itemize}
+    \item Limited output voltage swing.
+    \item Quite high static power dissipation.
+\end{itemize}
 
 							Static CMOS Logic
 
 Advantages:
-1. Negligible static power dissipation.
-2. Full output voltage swing.
+\begin{itemize}
+    \item Negligible static power dissipation.
+    \item Full output voltage swing.
+\end{itemize}
 
 Disadvantages:
-
-1. Dynamic power disspation is proportional to operating frequency. (C*VDD2 * f)
-2. Requires a large number of transistors. (for a circuit with fan-in ‘n’ we require 2*n transistors.)
-
+\begin{itemize}
+    \item Dynamic power disspation is proportional to operating frequency. ($CV_{DD}^2 f$)
+    \item Requires a large number of transistors. (for a circuit with fan-in ‘n’ we require 2*n transistors.)
+\end{itemize}
 
 The basic structure of CMOS Logic:
 
@@ -175,18 +147,19 @@ The equivalent resistance of pass transistors:
 
 
 
-							Concept of Memory Design
+\section{Concept of Memory Design}
 
-Outline:
-1. Introduction to Memory.
-2. Memory Classification.
-3. Memory Architectures and Building Blocks
-4. The Memory Core.
-a)	Read-only Memories.
-b)	Non-Volatile Read-Write Memories.
-c) 	Read-Write Memories.
-5. Recapitulation
-
+\emph{Outline:}
+\begin{itemize}
+    \item Introduction to Memory.
+    \item Memory Classification.
+    \item Memory Architectures and Building Blocks
+    \item The Memory Core.
+    \item	Read-only Memories.
+    \item	Non-Volatile Read-Write Memories.
+    \item Read-Write Memories.
+    \item Recapitulation
+\end{itemize}
 
 Semiconductor Memories
 
@@ -205,221 +178,7 @@ SRAM Cell
  
 
 
-
-
-
-
-
-
-
-Important Concepts in VLSI Design
-
-The Complete VLSI Design Flow:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Critical Path : In any digital logic circuit, the path with the maximum delay is called is called the Critical Path.
-
-Steps in VLSI Physical Design
-
-1. Floorplanning.
-2. Partitioning.
-3. Preplaced Cells.
-4. Power Planning. (Grid Power Structure).
-5. PNR (Placement and Routing).
-6. STA (Static Timing Analysis).
-
-
-
-									Logical Effort
-1. Introduction.
-2. Basics of logicsl effort.
-3. Calculation of logical effort for logic gates.
-4. Multistage Logic Network
-5. Recapitulation. 
-
-
-
-
-
-
-
-									MOS Technologies
-
-The MOS Capacitance Model
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1. Depletion-Load nMOS Logic
-2. Static CMOS Logic
-3. Pseudo nMOS Logic
-4. Dynamic MOS circuits
-    I> Single Phase Dynamic Circuits.
-    II> Two Phase Dynamic Circuits.
-5. Dynamic CMOS Logic.
-6. Domino CMOS Logic.
-7. Pass Transistor Logic.
-
-
-							Depletion Load nMOS Logic
-Advantages:
-1. Requires less transistors and hence less Si area. (requires n+1 nMOS transistors for a logic circuit with fan – in ‘n’)
-2.
-
-
-Disadvantages:
-1. Limited output voltage swing.
-2. Quite high static power dissipation.
-
-
-							Static CMOS Logic
-
-Advantages:
-1. Negligible static power dissipation.
-2. Full output voltage swing.
-
-Disadvantages:
-
-1. Dynamic power disspation is proportional to operating frequency. (C*VDD2 * f)
-2. Requires a large number of transistors. (for a circuit with fan-in ‘n’ we require 2*n transistors.)
-
-
-The basic structure of CMOS Logic:
-
-
-
-The CMOS Inverter:
-
-The Voltage Transfer Characteristic (VTC) of the the CMOS inverter:
-
-
-
-
-
-						  Dynamic MOS Logic Circuits
-
-Two Phase dynamic MOS circuits:
-
-
- 
-
-
-
-
-
-
-							
-
-
-
-
-
-
-
-							Pass Transistor Logic
-
-
-Transmission Gates.
-
-
-The equivalent resistance of pass transistors:
-
-
-
-
-
-							Concept of Memory Design
-
-Outline:
-1. Introduction to Memory.
-2. Memory Classification.
-3. Memory Architectures and Building Blocks
-4. The Memory Core.
-a)	Read-only Memories.
-b)	Non-Volatile Read-Write Memories.
-c) 	Read-Write Memories.
-5. Recapitulation
-
-
-Semiconductor Memories
-
-1. Volatile Memory.(Ex - RAM)
-2. Non-Volatile Memory. (Ex - ROM)
-
-Sense Amplifiers are an important component of Semiconductor Memories.
-
-				RAM (Random Access Memory)
-1. Static RAM (SRAM)
-2. Dynamic RAM (DRAM)
-
-SRAM Cell
-
-
- 
-
-
-
+\end{document}
 
 
 
