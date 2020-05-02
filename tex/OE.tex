@@ -104,7 +104,7 @@ Assumptions for the M/M/1 Modelling:
 \end{itemize}
  
 \subsubsection{The M/M/1 Model}
-For the system to work, No. Of arrivals < Avg. Service rate.
+For the system to work, No. Of arrivals $<$ Avg. Service rate.
 
 $$\rho = \frac{\lambda}{\mu} $$ 
 $ \rho \leftarrow $ Probability of time.
@@ -120,7 +120,19 @@ $$ L_s =  \sum_{n=1}^{\alpha (\infty)} n P_n
 = \frac{\rho}{(1-\rho)} = \frac{\lambda}{\mu-\lambda} $$
 The expected number pf customers in the \emph{Queue}:
 $$ L_q = \sum_{n=1}^{\alpha} (n-1)P_n  = \frac{\rho^2}{(1 - \rho)} = \frac{\lambda^2}{\mu(\mu - \lambda)}$$
-\section{NONLINEAR PROGRAMMING}
+Average Waiting time in the \emph{Queue}:
+
+$W_q =$ (Avg. Time b/w arrivals) * $L_q$  $$ W_q = \frac{1}{\lambda}Lq $$
+
+\subsection{Kendall Notation}
+$a =$ Arrival distribution \\
+$b =$ Service time (has exponential distribution) \\
+$c =$ no. Of service channels (Servers) \\
+$d =$ Maximum number of customers allowed in system \\
+$e =$ queue discipline (FIFO / FCFS) \\
+
+[ (a/b/c) = (d/e)]
+\section{NONLINEAR PROGRAMMING} 
 \subsection{Introduction}
 
 \subsection{Search Based Methods}
@@ -134,7 +146,7 @@ It is also similar to dichotomous method but the two are not the same i.e. is ap
 \end{center}
 \begin{itemize}
     \item The initial interval of uncertainty, in which the optimum lies, has to be known.
-    \item The function to be optimized has to be unimodal (in an interval only 1 minimum can lie) in the initial interval of uncertainty.
+    \item The function to be optimized has to be \emph{unimodal} (in an interval only 1 minimum can lie) in the initial interval of uncertainty.
     \item The exact optimum cannot be located in this method. Only an interval known as the final interval of uncertainty can be made as small as desired by using more computation.
     \item The number of function evaluations to be used in the search or the resolution required has to be specified beforehand.
 \end{itemize}
@@ -175,4 +187,96 @@ $$ 10 \hspace{1cm}89  \hspace{1cm}		0.01124 $$
 
 \subsubsection{Golden Search Method}
 Golden Search Method is based on the \textbf{Golden Ratio}.
+Ex. 1>  A line segment is divided into 2 unequal parts:\\
+$\leftarrow$-------------------------------------$\rightarrow$ \\
+$\leftarrow$--------- a ---------$\rightarrow$ $\leftarrow$---b---$\rightarrow$
+
+$$\frac{(a+b)}{a} = \frac{a}{b} ( =r )$$  \begin{center}For what value of  ‘a’ can this happen?\end{center}
+
+$$ \frac{b}{(a+b)} = a^2$$
+
+\begin{center}
+    for b =1
+\end{center}
+$$ a^2 -a -1 = 0 $$
+$$ a = \frac{1+\sqrt{5}}{2} $$
+
+$$  \frac{a}{b} = \frac{1 + \sqrt{5}}{2} = 1.6180339$$
+
+Now from fibonacci method, for large $N (N \rightarrow \infty)$
+
+$$ L_2 = \lim_{N \rightarrow \infty} F_{n-2} $$
+
+At Kth  iteration:
+$$ L_k = \lim_{N \rightarrow \infty} (\frac{F_{n-1}}{F_n})^{k-1} L_0 $$
+Now, from the relation:
+$$ F_n = F_{n-1} + F_{n-2} $$
+$$ \frac{F_n}{F_{n-1}} = 1 + \frac{F_{n-2}}{F_{n-1}} $$
+\begin{equation}\frac{F_n}{F_{n-1}} = 1 + \frac{F_{n-1}}{F_n} \end{equation}
+
+Let’s define
+\begin{equation} r = \lim_{N \rightarrow \infty} \frac{F_n}{F_{n-1}}  \end{equation}
+\begin{equation} r = 1 + \frac{1}{r} \end{equation}
+\begin{equation} r^2 - r -1 = 0\end{equation}
+\begin{equation}
+  r = 1.618034  
+\end{equation}
+
+using (3) and (4) in (1):
+$$ L_k = (\frac{1}{r})^{k-1} L_0
+      = (\frac{1}{1.618034})^{k-1} L_0 $$
+
+$$ L_2^* = \lim_{N \rightarrow \infty} (\frac{F_{n-2}}{F_n}) L_0
+        = \lim_{N \rightarrow \infty} (\frac{F_{n-1}}{F_n})^2 L_0
+        = (\frac{1}{r})^2 L_0 $$
+
+
+\subsection{Constrained Multivariate Optimization}
+\subsubsection{Lagrange Multiplier Method}
+The \emph{Langrangian multiplier method} is very useful for constraint multivariate optimisation.\\
+\textbf{Optimize function $f(x,y,z)$ subject to a constraint $g(x,y,z)=c$.}
+
+\textbf{Lagrangian Function}
+
+$$L(x,y,z,\lambda_1,\lambda_2) = f(x,y,z) - \sum_{i=1}^{m} \lambda_i g_i(x,y,z)$$
+
+\subsubsection{Convex \& Concave Function}
+\subsubsection{Nonlinear Multivariate Optimization with Equality Constraints}
+\textit{}
+\begin{itemize}
+    \item $2x - 2\lambda_1 = 0 		=> x = \lambda_1$
+    \item $2 + \lambda_1 - \lambda_2  = 0		=> \lambda_2 = \lambda_1 + 2$
+    \item $-2z - \lambda_2 = 0		=> z = -\frac{\lambda_2}{2}$
+    \item $2x - y = 0			=> 2x + z = 0$
+    \item $y + z = 0$
+\end{itemize}
+Solving the above equations:
+\begin{itemize}
+    \item $\lambda_1 = \frac{2}{3}$ 
+    \item $\lambda_2 = \frac{8}{3}$ 
+    \item $x = \frac{2}{3}$ 
+    \item $y = \frac{4}{3}$ 
+    \item $z = -\frac{4}{3}$
+\end{itemize}
+The maximum point is $(\frac{2}{3},\frac{4}{3},-\frac{4}{3})$
+and the maximum value = $f(\frac{2}{3},\frac{4}{3},-\frac{4}{3}) = \frac{4}{9} + \frac{8}{3} - \frac{16}{9} = \frac{4}{3}$
+
+\textit{Ex : Find optimal value of: $$f(x,y,z) = x^2 + y^2 + z^2$$ 
+		w.r.t the constraints:
+\begin{itemize}
+    \item $x + 2y + 3z = 6$
+    \item $x + 3y + 9z = 9$
+\end{itemize}
+}
+
+\subsubsection{Nonlinear Multivariate Optimization with Inequality Constraints}
+
+Max/Min $f(x_1,x_2,....,x_n)$ \\
+S.T. \\
+$g_1(x_1,x_2,...,x_n) <= b_1$ \\
+$g_2(x_1,x_2,...,x_n) <= b_2$ \\
+$g_m(x_1,x_2,...,x_n) <= b_m$ \\
+$x_1,x_2,....,x_n >= 0$
+
+\subsubsection{The Kuhn-Tucker Conditions}
 \end{document}
