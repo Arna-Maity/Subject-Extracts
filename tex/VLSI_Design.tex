@@ -68,7 +68,7 @@ Critical Path : In any digital logic circuit, the path with the maximum delay is
     \item Dynamic MOS circuits
     \begin{itemize}
         \item Single Phase Dynamic Circuits.
-        \item Two Phase Dynamic Circuits.
+        \item Two Phase Dynamic Circuits. (Requires a 2 Phase Clock)
     \end{itemize}
     \item Dynamic CMOS Logic.
     \item Domino CMOS Logic.
@@ -161,6 +161,7 @@ The equivalent resistance of pass transistors:
     \item Recapitulation
 \end{itemize}
 
+The Memory Core is implemented as an arrayed architecture as it helps to increase the component density of the memory chips, so as to pack larger volumes of memory in smaller areas. 
 \subsection{Memory Classification}
 \emph{Semiconductor Memories are broadly classified as follows:}
 \begin{itemize}
@@ -171,7 +172,11 @@ The equivalent resistance of pass transistors:
 
 Sense Amplifiers are an important component of Semiconductor Memories.
 
-				RAM (Random Access Memory)
+\subsubsection{RAM (Random Access Memory)}
+Random Access Memories are named so because we can randomly select any particular memory cell from the memory core using the Row and Column Decoders.
+Since, the memory core is densely packed with memory cells, each transistor of the memory cells are very small and hence can handle very low currents, but the \textit{data} and \textit{data bar} lines are large capacitive loads and therefore these small transistors would take a long time to charge and discharge these data lines. So, to mitigate this we use sense amplifiers to handle the switching of the states of the data lines.
+
+\emph{RAM is classified into following two categories:}
 \begin{itemize}
     \item Static RAM (SRAM)
     \item Dynamic RAM (DRAM)
@@ -179,6 +184,9 @@ Sense Amplifiers are an important component of Semiconductor Memories.
 
 \emph{The 6T SRAM Cell} \\
 \includegraphics [scale=0.5]{sram-cell}
+
+The block diagram of the Memory Architecture: \\
+\includegraphics[scale=0.7]{det_mem_arch}
 
  
 
