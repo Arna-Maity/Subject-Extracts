@@ -59,8 +59,10 @@ Critical Path : In any digital logic circuit, the path with the maximum delay is
 \subsubsection{Noise Margin}
 \subsubsection{Static Power Dissipation}
 \subsubsection{Dynamic Power Dissipation}
-\subsection{MOS Technologies}
 
+\section{Combinational Logic Design using MOS Transistor}
+
+\subsection{MOS Technologies}
 \begin{itemize}
     \item Depletion-Load nMOS Logic
     \item Static CMOS Logic
@@ -77,7 +79,7 @@ Critical Path : In any digital logic circuit, the path with the maximum delay is
 
 \subsection{Comparison of MOS Logic Technologies}
 
-							Depletion Load nMOS Logic
+\subsubsection{Depletion Load nMOS Logic}
 Advantages:
 \begin{itemize}
     \item Requires less transistors and hence less Si area. (requires n+1 nMOS transistors for a logic circuit with fan – in ‘n’)
@@ -89,45 +91,54 @@ Disadvantages:
     \item Quite high static power dissipation.
 \end{itemize}
 
-							Static CMOS Logic
+\subsubsection{Static CMOS Logic}
 
 Advantages:
 \begin{itemize}
     \item Negligible static power dissipation.
     \item Full output voltage swing.
+    \item They have twice the available current drive due to both nMOS and pMOS networks.
 \end{itemize}
+
 
 Disadvantages:
 \begin{itemize}
     \item Dynamic power disspation is proportional to operating frequency. ($CV_{DD}^2 f$)
-    \item Requires a large number of transistors. (for a circuit with fan-in ‘n’ we require 2*n transistors.)
+    \item Requires a large number of transistors. (for a circuit with fan-in ‘n’ we require 2*n transistors.). This is because logic function is implemented twice.
+    \item Requires greater Si area.
+    \item Subsequent stage capacitances are higher due to both nMOS and pMOS networks.
+    \item Longer delays due to higher load capacitances.
 \end{itemize}
 
 The basic structure of CMOS Logic:
 
+\subsubsection{Pseudo NMOS Logic}
 
+Advantages
+\begin{itemize}
+    \item Smaller area is required.
+    \item Have faster rate of operation.
+\end{itemize}
 
-The CMOS Inverter:
+Disadvantages
+\begin{itemize}
+    \item They draw static current as long as power remains 'ON'.
+    \item They used ratioed logic, so the low level logic is not strong.
+\end{itemize}
 
-The Voltage Transfer Characteristic (VTC) of the the CMOS inverter:
+\subsubsection{Dynamic MOS Logic Circuits}
+The need for the smaller area of Pseudo nMOS circuits and the Power Efficiency of CMOS circuits led to the rise of \textbf{Dynamic MOS circuits}. In this circuits we exploit the inherent parasitic capacitances of MOS circuits to our benefit.
 
-
-
-
-
-						  Dynamic MOS Logic Circuits
+Advantages
+\begin{itemize}
+    \item 
+\end{itemize}
 
 Two Phase dynamic MOS circuits:
 
 
  
 
-
-
-
-
-
-							
 
 
 
