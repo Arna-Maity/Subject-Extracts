@@ -4,6 +4,9 @@
 \title{First document}
 \author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
 \date{February 2014}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{physics}
 
 \begin{document}
 \tableofcontents
@@ -279,4 +282,38 @@ $g_m(x_1,x_2,...,x_n) <= b_m$ \\
 $x_1,x_2,....,x_n >= 0$
 
 \subsubsection{The Kuhn-Tucker Conditions}
+
+\subsection{Quadratic Programming}
+Quadratic Programming is the problem of optimizing a quadratic objective function.
+\textbf{Quadratic Programming is a type of Nonlinear Unconstrained Optimization.}
+
+\emph{Important points regarding Quadratic Programming:}
+\begin{itemize}
+    \item The objective function can be bilinear or a 2nd order polynomial term.
+    \item The constraints are linear and can be inequalities and equalities.
+\end{itemize}
+
+The \textbf{Hessian Matrix} is used to detect the \textbf{nature of stationary points} in a \textbf{multivariable function}.
+
+\begin{equation}
+H =
+\begin{bmatrix}
+\pdv[2]{f}{x_1} & \pdv{f}{x_1}{x_2} & ... & \pdv{f}{x_1}{x_n}\\
+\pdv{f}{x_2}{x_1} & \pdv[2]{f}{x_2} & ... & \pdv{f}{x_2}{x_n}\\
+\pdv{f}{x_3}{x_1} & \pdv{f}{x_3}{x_2} & ... & \pdv{f}{x_3}{x_n}\\
+. & . & ... & .\\
+. & . & ... & .\\
+. & . & ... & .\\
+\pdv{f}{x_n}{x_1} & \pdv{f}{x_n}{x_2} & ... & \pdv[2]{f}{x_n}\\
+\end{bmatrix}
+\end{equation}
+
+\emph{Definiteness of Matrices:} \\
+\textbf{Positive Definiteness:} \\ 
+\textbf{Positive Semi-definiteness:}  \\
+\textbf{Negative Definiteness: }  \\
+\textbf{Negative Semi-definiteness:}  \\
+\textbf{Indefiniteness:}  \\
+
+A matrix A is said to be positive semidefinite, if all the eigenvalues of 
 \end{document}
