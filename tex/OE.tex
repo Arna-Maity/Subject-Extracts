@@ -5,6 +5,7 @@
 \author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
 \date{February 2014}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphics}
 \usepackage{physics}
 
@@ -310,10 +311,176 @@ H =
 
 \emph{Definiteness of Matrices:} \\
 \textbf{Positive Definiteness:} \\ 
+When all the \textit{principal minors} of a matrix are \textit{positive}, then the matrix is said to be \textbf{positive definite}. \\
 \textbf{Positive Semi-definiteness:}  \\
+When all the \textit{principal minors} of a matrix are \textit{non-negative}, then the matrix is said to be \textbf{positive semidefinite}. \\
 \textbf{Negative Definiteness: }  \\
+When all the \textit{principal minors} of a matrix are \textit{negative}, then the matrix is said to be \textbf{negative definite}. \\
 \textbf{Negative Semi-definiteness:}  \\
+When all the \textit{principal minors} of a matrix are \textit{non-positive}, then the matrix is said to be \textbf{negative semi-definite}.\\
 \textbf{Indefiniteness:}  \\
+When the \textit{principal minors} of a matrix are \textit{neither all positive nor all negative}, then the matrix is said to be \textbf{indefinite}.\\
 
 A matrix A is said to be positive semidefinite, if all the eigenvalues of 
+
+\textbf{Taylor Series Expansion of Multivariable Functions: }
+\begin{equation}f(x+x^*) = f(x^*) + (\nabla f(x^*))^T x + \frac{1}{2}x^T H(x^*) x\end{equation}
+\begin{equation} f(x+x^*) = q + p^T x + \frac{1}{2}x^T H x\end{equation}
+
+where,
+$$x = \begin{bmatrix}x_1 \\ x_2 \\ x_3 \\.\\.\\ x_n \end{bmatrix}
+  x^* = \begin{bmatrix}x_1^* \\ x_2^* \\ x_3^* \\.\\.\\ x_n^* \end{bmatrix}$$
+  
+ comparing equations (20) \& (21): \\
+ $$q = f(x^*)$$
+ $$p = \nabla f(x^*)$$
+ $$H = H(x^*)$$
+\subsubsection{Unconstrained Optimization}
+\emph{Ex - 1 \\
+Find the minima of the following quadratic objective function: \\
+    $f(x_1,x_2) = 3x_1^2 + 4x_1x_2 + 3x_2^2 - 50x_1 - 50x_2$ } \\
+    
+\textbf{Soln: }
+Let $x^*$ be the stationary point.
+\therefore  $\nabla f(x^*) = \overrightarrow 0$
+\begin{equation}
+    \nabla f(x*) = \begin{bmatrix}6x_1^* + 4x_2^* - 50 \\ 4x_1^* + 6x_2^* - 50\end{bmatrix} = \begin{bmatrix}
+    0 \\ 0
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+  x_1^* = 5 , x_2^* = 5
+\end{equation}
+
+\begin{equation}
+    H(x^*) = \begin{bmatrix}
+\pdv[2]{f}{x_1} & \pdv{f}{x_1}{x_2} \\
+\pdv{f}{x_2}{x_1} & \pdv[2]{f}{x_2} 
+\end{bmatrix} = \begin{bmatrix}
+6 & 4 \\
+4 & 6
+\end{bmatrix}
+\end{equation}
+
+\therefore \hspace{0.2cm} $1^{st}$ order principal minor of H = 6
+
+\therefore \hspace{0.2cm} $2^{nd}$ order principal minor of H = 36 - 16 = 20
+
+Since, both the principal minors of the matrix are positive, so H is positive definite and $f(x_1,x_2)$ has one minima at $x^*$.
+
+Functional Value at the minimum:
+$$ f(5,5) = -250 $$
+\subsubsection{Quadratic Programming with equality constraints (Bordered Hessian Matrix)}
+
+A Quadratic Programming problem with equality constraints is of the following form:
+
+Min/Max $f(x_1,x_2,x_3,...,x_n)$
+
+Subject To: \\
+$ g_1(x_1,x_2,x_3,...,x_n) = b_1$ \\
+$ g_2(x_1,x_2,x_3,...,x_n) = b_2$ \\
+$ g_3(x_1,x_2,x_3,...,x_n) = b_3$ \\
+. \\
+. \\
+$ g_m(x_1,x_2,x_3,...,x_n) = b_m$ \\
+$x_1, x_2, x_3, ... x_n \geq 0 $
+
+Then, the Laplacian:
+    $$L(x_1,x_2,...,x_n,\lambda_1,\lambda_2, ... \lambda_m) = f(\overrightarrow x) + \sum_{i=1}^m \lambda_i [b_i - g_i(\overrightarrow x)]$$
+    
+    Solving $\nabla L = \overrightarrow 0$
+    We get, stationary point $x^*$ \& $\lambda_i$ values.
+    \\
+    \\
+    \\
+\textbf{Bordered Hessian Matrix}
+\begin{equation}
+    \Tilde{H} = \begin{bmatrix}
+    [0]_{m*m} && [\nabla g_i^T]_{m*n} \\ [\nabla g_i]_{n*m} && [H]_{n*n}
+    \end{bmatrix}_{(m+n)*(m+n)}
+\end{equation}
+
+Where, 
+
+$ n = $Number of independent variables.
+
+$ m = $Number of constraints.
+
+At the critical point $x*$
+\begin{itemize}
+    \item If the \begin{vmatrix}H\end{vmatrix} = $M_{m+n}$ has sign $(-1)^n$ and the sign of the determinant of the last (m+n) leading principal minors $M_{2m+1},...,M_{m+n}$ alternate in sign, then H is positive definite and the critical point $x^*$ is a minimum point.
+    
+    \item If the determinant of all (m+n) leading principal minors $M_{2m+1},..., M_{m+n}$ have the same sign $(-1)^m$, then H is positive definite and $x^*$ is a minimum point. 
+\end{itemize}
+
+\emph{Ex-1 \\
+Find the extreme points of $f(x,y,z) = x^2 + y^2 + z^2$}
+
+Subject To:
+$$ 3x + y + z = 5 $$
+$$ x + y + z = 1 $$
+$$ x,y,z \geq 0 $$
+
+
+\textbf{Soln.}
+
+The Lagrangian Function:
+\begin{equation}
+    L(x,y,z,\lambda_1,\lambda_2) = x^2 + y^2 + z^2 + \lambda_1(5-3x-y-z) + \lambda_2(1-x-y-z)
+\end{equation}
+\begin{equation}
+    g_1(x,y,z) = 3x + y + z
+\end{equation}
+\begin{equation}
+    g_2(x,y,z) = x + y + z
+\end{equation}
+
+We, Solve the following system of equations to find the extreme points:
+\begin{equation}
+    \nabla L = \overrightarrow 0
+\end{equation}
+\begin{equation}
+    \pdv{L}{x} = 0 \implies 2x-3\lambda_1-\lambda_2 = 0
+\end{equation}
+\begin{equation}
+    \pdv{L}{y} = 0 \implies 2y-\lambda_1-\lambda_2 = 0
+\end{equation}
+\begin{equation}
+    \pdv{L}{z} = 0 \implies 2z-\lambda_1-\lambda_2 = 0
+\end{equation}
+\begin{equation}
+    \pdv{L}{\lambda_1} = 0 \implies 3x+y+z = 0
+\end{equation}
+\begin{equation}
+    \pdv{L}{\lambda_2} = 0 \implies x+y+z = 0
+\end{equation}
+
+Solving (30) - (34) , we get,
+
+$x=2$, $y=-\frac{1}{2}$, $z=-\frac{1}{2}$, $\lambda_1 = \frac{5}{2}$ & $\lambda_2=-\frac{7}{2}$\\
+
+
+\therefore The\hspace{0.1cm} Critical\hspace{0.1cm} Point ($x^*$) = $(2,-\frac{1}{2},-\frac{1}{2})$
+
+
+The Hessian Matrix: 
+\begin{equation}
+    H = \begin{bmatrix}
+    \pdv[2]{f}{x} && \pdv{f}{x}{y} && \pdv{f}{x}{z} \\
+    \pdv{f}{y}{x} && \pdv[2]{f}{y} && \pdv{f}{y}{z} \\
+    \pdv{f}{z}{x} && \pdv{f}{z}{y} && \pdv[2]{f}{z} 
+    \end{bmatrix} = \begin{bmatrix}
+    2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2
+    \end{bmatrix}
+\end{equation}
+
+The \textbf{Bordered Hessian Matrix}:
+\begin{equation}
+    \Tilde{H} = 
+    \begin{bmatrix}
+    0 & 0 & 3 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 3 & 1 & 2 & 0 & 0 \\ 1 & 1 & 0 & 2 & 0 \\ 1 & 1 & 0 & 0 & 2
+    \end{bmatrix}
+\end{equation}
 \end{document}
+
