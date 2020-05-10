@@ -1,7 +1,7 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\graphicspath{ {./images/} }
+
 
 \title{First document}
 \author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
@@ -16,7 +16,7 @@
 
 \textbf{The Complete VLSI Design Flow:}
 
-\includegraphics [scale=1.6]{vsdflow}
+\includegraphics [scale=1.6]{./images/vsdflow}
 
 The VLSI Design Flow is divided into two categories:
 \begin{itemize}
@@ -176,7 +176,7 @@ Advantages:
 \end{itemize}
  
  Basic diagram of a dynamic CMOS circuit: \\
- \includegraphics[scale = 0.5]{dyn_cmos}  \\
+ \includegraphics[scale = 0.5]{./images/dyn_cmos}  \\
  Disadvantages/Limitations:
  \begin{itemize}
      \item Charge Leakage Problem.
@@ -236,10 +236,10 @@ Since, the memory core is densely packed with memory cells, each transistor of t
 \end{itemize}
 
 \emph{The 6T SRAM Cell} \\
-\includegraphics [scale=0.5]{sram-cell}
+\includegraphics [scale=0.5]{./images/sram-cell}
 
 The block diagram of the Memory Architecture: \\
-\includegraphics[scale=0.7]{det_mem_arch}
+\includegraphics[scale=0.7]{./images/det_mem_arch}
 
 Both \emph{Row Decoder} and \emph{Column Decoder} are required when we make a bit-addressable memory.
 But for a byte/word addresable memory we only require a row decoder.
