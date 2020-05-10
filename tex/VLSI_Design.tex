@@ -149,8 +149,43 @@ Advantages:
     \item Number of transistors required is small. ($n+2$ for an $n$ fan-in logic circuit).
 \end{itemize}
 
+Disadvantages:
+\begin{itemize}
+    \item Weak High and Low levels.
+    \item Suffers from the \emph{Clock Skew} problem.
+\end{itemize}
 
+To overcome the above problems, we use the \emph{Two Phase Dynamic Circuits}. \\
+\textbf{Two Phase dynamic MOS circuits} \\
+In two phase dynamic circuits we use two different \emph{non-overlapping} clock signals. The two clock signals together can take on 3 different states. $(00,01,10)$
+
+\textbf{Operation of Two Phase Dynamic MOS Logic}
+
+Advantages:
+\begin{itemize}
+    \item Two Phase Dynamic logic circuit is ratioed logic, so the logic levels are better for two phase circuits.
+    \item No static power dissipation.
+    \item Less no of transistors required. (n+2 transistors for fan-in of 'n' transistors).
+    \item Due to above reasons these circuits are called powerless and ratioless logic circuits.
+\end{itemize}
+
+\textbf{Two Phase Dynamic CMOS Circuits}
+Advantages:
+\begin{itemize}
+    \item The load capacitance is much less in case of dynamic CMOS circuits as compared to static CMOS circuits and so their speed of operation is much faster than static CMOS circuits. 
+\end{itemize}
  
+ Basic diagram of a dynamic CMOS circuit: \\
+ \includegraphics[scale = 0.5]{dyn_cmos}  \\
+ Disadvantages/Limitations:
+ \begin{itemize}
+     \item Charge Leakage Problem.
+     \item Charge Sharing Problem.
+     \item Clock Skew Problem.
+ \end{itemize}
+ 
+ \textbf{Overcoming Charge Sharing and Charge Leakage using Weak pMOS pull-up} \\
+ \includegraphics[scale=0.5]{tex/images/chargeshare.png}
 
 
 							Pass Transistor Logic
@@ -206,7 +241,8 @@ Since, the memory core is densely packed with memory cells, each transistor of t
 The block diagram of the Memory Architecture: \\
 \includegraphics[scale=0.7]{det_mem_arch}
 
- 
+Both \emph{Row Decoder} and \emph{Column Decoder} are required when we make a bit-addressable memory.
+But for a byte/word addresable memory we only require a row decoder.
 
 
 \end{document}
