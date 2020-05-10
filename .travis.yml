@@ -8,10 +8,15 @@ script:
 - wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
 - chmod +x latexdockercmd.sh
 - "./latexdockercmd.sh pdflatex tex/OE.tex"
+- "./latexdockercmd.sh pdflatex tex/VLSI_Design.tex"
 deploy:
   provider: releases
   api_key:
-    secure: PAT
-  file:
+    secure: RZlg8Jt9JjQnH++WPLHBdCN0QIMDch8/Rdvn4pQWkfg5rkmOHZzD9NlSPpwxNJ++0UobW+JdbXb7RKntj7GvyU1Y4Rie3PRDXPltojkfDOtYJq56NUThBuvcWqpvzc6GLkbuDxmJ6M49e1oBej3ygUsebl8yPFErXnN7eqTPvYGzXAf3TtGKbzYYQ4IBXRTghGHN3FmtH3sJV4i53N9QaAA9PkAWakK/G2t1I0IrYdCdwb3qtw4AkQNSpt5G2zV+pJ5/jY0+0QXuMlHZjK2WHQAywzIn5VD1BqzGAqN6ZQ9kNIntMsMsXVZ+T2yAs7X9C399Y+9a6ik2CqEMZuy5bbsfqzTPlMthDGvDpdgHQ93fXQqgxw+ebA6Bt0jGjhtMDRCZxnvvJk9z8cqGSBM6za4OSMfD32e7tf9kpr+fFrtWTgiP8s6GtxXHJWM+hLhm6gHD9M27P9hXR9X72Z7v/Z3AwireNKb7xaGn1khlo4uLZj7boW6YRD4QkUtHK03B2tuUyX7ZArETF6Qe1AmF3x3iDsY1ogLKbx3KKWhQ5OjC7syAr4BLs1JaI/Redy3LRBD8HnLZ6Q1AF0o5kc7IIpfqIXJBIYkIA/1OLWhZ08ETPkbw29wCdwJssQtxV7Du4fWiGJNWH8dVhn9BNHiIxUk/RMOSbApQfH98HXniznM=
+  file: 
     - OE.pdf
-  skip_cleanup: true
+    - VLSI_Design.pdf
+  on:
+    repo: Arna-Maity/Subject-Extracts
+    tags: true
+  skip_cleanup: 'true'
