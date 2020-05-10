@@ -9,4 +9,4 @@ chmod +x latexdockercmd.sh
 edit ./latexdockercmd.sh
 
 # Compile using pdflatex (docker will pull the image automatically)
-./latexdockercmd.sh pdflatex tex/OE.tex
+./latexdockercmd.sh pdflatex OE.tex
